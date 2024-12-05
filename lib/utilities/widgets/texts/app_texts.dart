@@ -28,6 +28,18 @@ class AppTexts {
     );
   }
 
+  static mediumText(BuildContext context, String title) {
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
+    return Text(
+      title,
+      style: GoogleFonts.metrophobic(
+          textStyle: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: isDark ? AppColors.whiteColor : AppColors.blackColor)),
+    );
+  }
+
   static buttonText(BuildContext context, String title) {
     bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Text(
@@ -39,6 +51,4 @@ class AppTexts {
               color: isDark ? AppColors.blackColor : AppColors.whiteColor)),
     );
   }
-
-
 }

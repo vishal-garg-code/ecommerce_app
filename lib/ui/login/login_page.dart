@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/ui/login/forgot_password.dart';
+import 'package:ecommerce_app/ui/login/sign_up_page.dart';
 import 'package:ecommerce_app/utilities/strings/app_strings.dart';
 import 'package:ecommerce_app/utilities/widgets/buttons/app_buttons.dart';
 import 'package:ecommerce_app/utilities/widgets/text_fields/app_textfields.dart';
@@ -54,12 +56,18 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgotPassword(),
+                          ));
+                    },
                     child: AppTexts.smallerText(
                         context, AppStrings.forget_your_password_text),
                   ),
                   Image.asset(
-                    "assets/images/img_right_arrow_orange.png",
+                    AppStrings.right_arrow_orange,
                     scale: 3,
                   )
                 ],
@@ -69,10 +77,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               AppButtons.elevatedOrangeButton(
                   context, () {}, AppStrings.login_text),
-
-              SizedBox(height: 80,),
-
-
+              SizedBox(
+                height: 80,
+              ),
               AppTexts.smallerText(
                   context, AppStrings.or_login_with_social_account_text),
               SizedBox(
@@ -82,14 +89,37 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   AppButtons.socialLoginButton(
-                      context, 'assets/images/img_google.png', () {}),
+                      context, AppStrings.google_image_path, () {}),
                   SizedBox(
                     width: 20,
                   ),
                   AppButtons.socialLoginButton(
-                      context, 'assets/images/img_facebook.png', () {}),
+                      context, AppStrings.facebook_image_path, () {}),
                 ],
               ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignUpPage(),
+                          ));
+                    },
+                    child: AppTexts.smallerText(
+                        context, AppStrings.create_new_account_text),
+                  ),
+                  Image.asset(
+                    AppStrings.right_arrow_orange,
+                    scale: 3,
+                  )
+                ],
+              )
             ],
           ),
         ),
